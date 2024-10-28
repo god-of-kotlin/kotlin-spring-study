@@ -1,6 +1,6 @@
 package com.group.libraryapp.service
 
-import com.group.libraryapp.domain.user.User
+import com.group.libraryapp.domain.User
 import com.group.libraryapp.domain.user.UserRepository
 import com.group.libraryapp.dto.user.request.UserCreateRequest
 import com.group.libraryapp.dto.user.request.UserUpdateRequest
@@ -66,7 +66,7 @@ class UserServiceTest @Autowired constructor(
     fun updateUsersNameTest() {
         // given
         val savedUser = userRepository.save(User("A", null))
-        val request = UserUpdateRequest(savedUser.id, "B")
+        val request = UserUpdateRequest(savedUser.id!!, "B")
 
         // when
         userService.updateUserName(request)

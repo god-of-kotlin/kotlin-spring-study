@@ -1,6 +1,5 @@
 package com.group.libraryapp.domain
 
-import com.group.libraryapp.domain.user.User
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType

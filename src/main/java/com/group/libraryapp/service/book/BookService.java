@@ -1,8 +1,8 @@
 package com.group.libraryapp.service.book;
 
 import com.group.libraryapp.domain.Book;
+import com.group.libraryapp.domain.User;
 import com.group.libraryapp.domain.book.BookRepository;
-import com.group.libraryapp.domain.user.User;
 import com.group.libraryapp.domain.user.UserRepository;
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistoryRepository;
 import com.group.libraryapp.dto.book.request.BookLoanRequest;
