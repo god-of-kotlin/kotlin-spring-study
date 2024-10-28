@@ -6,6 +6,8 @@ import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -52,10 +54,12 @@ public class User {
     targetHistory.doReturn();
   }
 
+  @NotNull
   public String getName() {
     return name;
   }
 
+  @Nullable
   public Integer getAge() {
     return age;
   }
