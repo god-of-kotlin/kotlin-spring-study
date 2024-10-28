@@ -1,7 +1,7 @@
 package com.group.libraryapp.domain.user;
 
 import com.group.libraryapp.domain.Book;
-import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
+import com.group.libraryapp.domain.UserLoanHistory;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class User {
   }
 
   public void loanBook(Book book) {
-    this.userLoanHistories.add(new UserLoanHistory(this, book.getName(), false));
+    this.userLoanHistories.add(new UserLoanHistory(this, book.getName(), false, null));
   }
 
   public void returnBook(String bookName) {
