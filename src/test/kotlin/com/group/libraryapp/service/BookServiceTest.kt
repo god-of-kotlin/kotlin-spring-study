@@ -1,8 +1,8 @@
 package com.group.libraryapp.service
 
-import com.group.libraryapp.domain.Book
-import com.group.libraryapp.domain.User
-import com.group.libraryapp.domain.UserLoanHistory
+import com.group.libraryapp.domain.book.Book
+import com.group.libraryapp.domain.user.User
+import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory
 import com.group.libraryapp.domain.book.BookRepository
 import com.group.libraryapp.domain.user.UserRepository
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistoryRepository

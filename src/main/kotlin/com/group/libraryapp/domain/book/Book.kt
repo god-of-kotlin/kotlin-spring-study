@@ -1,4 +1,4 @@
-package com.group.libraryapp.domain
+package com.group.libraryapp.domain.book
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
