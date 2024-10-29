@@ -11,30 +11,30 @@ import java.util.List;
 @RestController
 public class UserController {
 
-  private final UserService userService;
+    private final UserService userService;
 
-  public UserController(UserService userService) {
-    this.userService = userService;
-  }
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
-  @PostMapping("/user")
-  public void saveUser(@RequestBody UserCreateRequest request) {
-    userService.saveUser(request);
-  }
+    @PostMapping("/user")
+    public void saveUser(@RequestBody UserCreateRequest request) {
+        userService.saveUser(request);
+    }
 
-  @GetMapping("/user")
-  public List<UserResponse> getUsers() {
-    return userService.getUsers();
-  }
+    @GetMapping("/user")
+    public List<UserResponse> getUsers() {
+        return userService.getUsers();
+    }
 
-  @PutMapping("/user")
-  public void updateUserName(@RequestBody UserUpdateRequest request) {
-    userService.updateUserName(request);
-  }
+    @PutMapping("/user")
+    public void updateUserName(@RequestBody UserUpdateRequest request) {
+        userService.updateUserName(request);
+    }
 
-  @DeleteMapping("/user")
-  public void deleteUser(@RequestParam String name) {
-    userService.deleteUser(name);
-  }
+    @DeleteMapping("/user")
+    public void deleteUser(@RequestParam String name) {
+        userService.deleteUser(name);
+    }
 
 }
