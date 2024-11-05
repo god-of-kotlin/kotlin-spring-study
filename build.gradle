@@ -48,3 +48,15 @@ compileTestKotlin{
         jvmTarget = "11"
     }
 }
+configurations {
+    compileOnly {
+        extendsFrom(configurations.kapt)
+    }
+}
+sourceSets {
+    main {
+        java {
+            srcDir("build/generated/source/kapt/main")
+        }
+    }
+}
