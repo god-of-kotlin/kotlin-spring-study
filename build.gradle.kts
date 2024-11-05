@@ -37,6 +37,9 @@ dependencies {
 	implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
 	kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
 
+	// Logging
+	implementation("io.github.microutils:kotlin-logging:1.12.0")
+
 	// Test
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
@@ -53,6 +56,10 @@ allOpen {
 	annotation("jakarta.persistence.Entity")
 	annotation("jakarta.persistence.MappedSuperclass")
 	annotation("jakarta.persistence.Embeddable")
+}
+
+noArg {
+	annotations("jakarta.persistent.Entity")
 }
 
 tasks.withType<Test> {
