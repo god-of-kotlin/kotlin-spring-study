@@ -21,16 +21,6 @@ class BookController(
     bookService.saveBook(request)
   }
 
-  @PostMapping("/book/loan")
-  fun loanBook(@RequestBody request: BookLoanRequest) {
-    bookService.loanBook(request)
-  }
-
-  @PutMapping("/book/return")
-  fun returnBook(@RequestBody request: BookReturnRequest) {
-    bookService.returnBook(request)
-  }
-
   @GetMapping("/book/loan")
   fun countLoanedBook(): Int {
     return bookService.countLoanedBook()
