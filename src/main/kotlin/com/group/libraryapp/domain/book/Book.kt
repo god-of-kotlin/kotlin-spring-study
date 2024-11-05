@@ -4,34 +4,31 @@ import javax.persistence.*
 
 @Entity
 class Book(
-  val name: String,
-
+  val title: String,
   @Enumerated(EnumType.STRING)
-  val type: BookType,
-
+  val type: BookType
+) {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  val id: Long? = null,
-) {
+  var id: Long? = null
 
-  init {
-    if (name.isBlank()) {
-      throw IllegalArgumentException("이름은 비어 있을 수 없습니다")
-    }
+  private var isLoaned: Boolean = false
+
+  fun isAvailable(): Boolean {
+    return !isLoaned
   }
 
-  companion object {
-    fun fixture(
-      name: String = "책 이름",
-      type: BookType = BookType.COMPUTER,
-      id: Long? = null,
-    ): Book {
-      return Book(
-        name = name,
-        type = type,
-        id = id,
-      )
+  fun loan() {
+    if (isLoaned) {
+      throw Exception("Book is already loaned.")
     }
+    isLoaned = true
   }
 
+  fun returnBook() {
+    if (!isLoaned) {
+      throw Exception("Book is not currently loaned.")
+    }
+    isLoaned = false
+  }
 }

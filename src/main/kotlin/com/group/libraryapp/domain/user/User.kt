@@ -10,7 +10,7 @@ import javax.persistence.Id
 import javax.persistence.OneToMany
 
 @Entity
-class User constructor(
+class User(
   var name: String,
 
   val age: Int?,
@@ -20,7 +20,7 @@ class User constructor(
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  val id: Long? = null,
+  val id: Long? = null
 ) {
 
   init {
@@ -34,11 +34,15 @@ class User constructor(
   }
 
   fun loanBook(book: Book) {
-    this.userLoanHistories.add(UserLoanHistory(this, book.name))
+    // book.name을 사용하여 UserLoanHistory 객체 생성
+    this.userLoanHistories.add(UserLoanHistory(this, book.title))
   }
 
   fun returnBook(bookName: String) {
-    this.userLoanHistories.first { history -> history.bookName == bookName }.doReturn()
-  }
+    // 대출 기록에서 해당 책을 찾아서 반환 처리
+    val loanHistory = this.userLoanHistories.firstOrNull { it.bookName == bookName }
+      ?: throw IllegalArgumentException("해당 이름의 대출 기록이 없습니다.")
 
+    loanHistory.doReturn() // 반환 처리
+  }
 }

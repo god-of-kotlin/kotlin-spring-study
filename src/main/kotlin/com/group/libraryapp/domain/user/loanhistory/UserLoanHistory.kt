@@ -8,36 +8,18 @@ class UserLoanHistory(
   @ManyToOne
   val user: User,
 
-  val bookName: String,
-
-  var status: UserLoanStatus = UserLoanStatus.LOANED,
+  val bookName: String, // 책 이름을 필드로 추가
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  val id: Long? = null,
+  val id: Long? = null
 ) {
-
-  val isReturn: Boolean
-    get() = this.status == UserLoanStatus.RETURNED
+   var isReturned: Boolean = false
 
   fun doReturn() {
-    this.status = UserLoanStatus.RETURNED
-  }
-
-  companion object {
-    fun fixture(
-      user: User,
-      bookName: String = "이상한 나라의 엘리스",
-      status: UserLoanStatus = UserLoanStatus.LOANED,
-      id: Long? = null,
-    ): UserLoanHistory {
-      return UserLoanHistory(
-        user = user,
-        bookName = bookName,
-        status = status,
-        id = id,
-      )
+    if (isReturned) {
+      throw IllegalStateException("This book has already been returned.")
     }
+    isReturned = true
   }
-
 }
